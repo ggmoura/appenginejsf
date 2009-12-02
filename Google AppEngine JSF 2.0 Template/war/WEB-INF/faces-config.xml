@@ -5,7 +5,7 @@
 	version="2.0">
 	<application>
 		<locale-config>
-			<default-locale>en</default-locale>
+			<default-locale>pt_BR</default-locale>
 		</locale-config>
 	</application>
 </faces-config>
