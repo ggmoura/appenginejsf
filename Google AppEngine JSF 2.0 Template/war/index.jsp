@@ -4,5 +4,5 @@
    </head>
    <body>
       <% response.sendRedirect("welcome.jsf"); %>
-   <body>
+   </body>
 </html>
