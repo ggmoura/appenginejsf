@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!-- 
+Exemplo usando JSF 2.0 (Public Review) apresentado em 30/01/2009 na primeira reunião de 2009 
+do JUGMS (http://jugms.com.br)
+
+Autor: Gleidson Guimarães Moura (http://gilliard.eti.br)
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	
+<ui:composition template="/WEB-INF/templates/template.xhtml">
+
+	<ui:define name="conteudo">
+		<h:outputText value="Este texto está dentro do conteúdo do template" />
+	</ui:define>
+	<ui:param name="titulo" value="Aprendendo a usar um template" />
+
+	<h:form>
+
+		<h:outputText value="JSF 2.0 Rodando...." />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<h:graphicImage alt="graphic image" url="imagens/smile.png" onclick="alertar()" />
+
+		<h:outputText value="#{helloBean.texto}" />&nbsp;&nbsp;
+		<h:inputText value="#{helloBean.texto}" />
+		<h:commandButton value="Testar" action="#{helloBean.testar}" />
+
+	</h:form>
+	
+</ui:composition>
+
+</html>

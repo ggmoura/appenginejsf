@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!-- 
+Exemplo usando JSF 2.0 (Public Review) apresentado em 30/01/2009 na primeira reunião de 2009 
+do JUGMS (http://jugms.com.br)
+
+Autor: Gilliard Santos Cordeiro (http://gilliard.eti.br)
+ -->
+<!DOCTYPE html
+      PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<h:outputStylesheet name="css/estilos.css" />
+	<script type="text/javascript" src="javascript/testeScript.js" ></script>
+	<title>#{empty titulo ? "Apresentação JSF 2.0" : titulo}</title>
+</h:head>
+
+<body>
+<table>
+	<tr>
+		<td>
+		<div class="destaque">Cabeçalho muito elaborado              
+		<h:graphicImage alt="graphic image" url="imagens/smile.png" onclick="alertar()" />
+		</div>
+		</td>
+	</tr>
+	<tr>
+		<td><!-- só pode haver um conteúdo anônimo por template --> <ui:insert />
+		</td>
+	</tr>
+	<tr>
+		<td><ui:insert name="conteudo" /></td>
+	</tr>
+	<tr>
+		<td>
+		<div class="destaque">Rodapé mais elaborado ainda</div>
+		<a href="home.jsf">Go Home</a></td>
+	</tr>
+
+</table>
+</body>
+</html>
