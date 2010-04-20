@@ -11,36 +11,44 @@ Autor: Gilliard Santos Cordeiro (http://gilliard.eti.br)
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
 
 <h:head>
 	<h:outputStylesheet name="css/estilos.css" />
-	<script type="text/javascript" src="javascript/testeScript.js" ></script>
+	<script type="text/javascript" src="javascript/testeScript.js"></script>
 	<title>#{empty titulo ? "Apresentação JSF 2.0" : titulo}</title>
 </h:head>
 
 <body>
-<table>
-	<tr>
-		<td>
-		<div class="destaque">Cabeçalho muito elaborado              
-		<h:graphicImage alt="graphic image" url="imagens/smile.png" onclick="alertar()" />
-		</div>
-		</td>
-	</tr>
-	<tr>
-		<td><!-- só pode haver um conteúdo anônimo por template --> <ui:insert />
-		</td>
-	</tr>
-	<tr>
-		<td><ui:insert name="conteudo" /></td>
-	</tr>
-	<tr>
-		<td>
-		<div class="destaque">Rodapé mais elaborado ainda</div>
-		<a href="home.jsf">Go Home</a></td>
-	</tr>
+<p:layout fullPage="true">
 
-</table>
+	<p:layoutUnit position="top" height="75" h:header="Top"
+		resizable="true" closable="true" collapsible="true">
+		<div class="destaque">Cabeçalho muito elaborado <h:graphicImage
+			alt="graphic image" url="imagens/smile.png" onclick="alertar()" /></div>
+	</p:layoutUnit>
+
+	<p:layoutUnit position="bottom" height="75" h:header="Bottom"
+		resizable="true" closable="true" collapsible="true">
+		<div class="destaque">Rodapé mais elaborado ainda</div>
+		<a href="home.jsf">Go Home</a>
+	</p:layoutUnit>
+
+	<p:layoutUnit position="left" width="200" h:header="Left"
+		resizable="true" closable="true" collapsible="true">
+		<h:outputText value="West unit content." />
+	</p:layoutUnit>
+
+	<p:layoutUnit position="right" width="200" h:header="Right"
+		resizable="true" closable="true" collapsible="true">
+		<h:outputText value="East unit content." />
+	</p:layoutUnit>
+
+	<p:layoutUnit position="center">
+		<td><ui:insert name="conteudo" /></td>
+	</p:layoutUnit>
+
+</p:layout>
 </body>
 </html>
