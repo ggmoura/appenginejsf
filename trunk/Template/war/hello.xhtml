@@ -10,9 +10,10 @@ Autor: Gleidson Guimarães Moura (http://gilliard.eti.br)
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
 
-	
+
 <ui:composition template="/WEB-INF/templates/template.xhtml">
 
 	<ui:define name="conteudo">
@@ -21,16 +22,18 @@ Autor: Gleidson Guimarães Moura (http://gilliard.eti.br)
 	<ui:param name="titulo" value="Aprendendo a usar um template" />
 
 	<h:form>
-
 		<h:outputText value="JSF 2.0 Rodando...." />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<h:graphicImage alt="graphic image" url="imagens/smile.png" onclick="alertar()" />
+		<h:graphicImage alt="graphic image" url="imagens/smile.png"	onclick="alertar();" />
 
 		<h:outputText value="#{helloBean.texto}" />&nbsp;&nbsp;
 		<h:inputText value="#{helloBean.texto}" />
-		<h:commandButton value="Testar" action="#{helloBean.testar}" />
-
+		<h:commandButton value="Testar" action="#{helloBean.testar}" /><br /><br /><br />
+		<h:commandButton value="SCRIPT" onclick="alertar();" /><br /><br /><br />
+		
+		<p:calendar value="#{helloBean.data}" mode="inline" selection="multiple" close="false"/>
+		
 	</h:form>
-	
+
 </ui:composition>
 
 </html>

@@ -1,3 +1,3 @@
-function alerta(str) {
-	alert(str);
+function alertar() {
+	alert('Só Deus é capaz de gerar numeros randômicos');
 }
