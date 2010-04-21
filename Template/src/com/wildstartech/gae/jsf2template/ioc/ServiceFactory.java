@@ -20,6 +20,7 @@ public class ServiceFactory {
 		injector = Guice.createInjector(new IoCBinder());
 	}
 
+	@SuppressWarnings("unchecked")
 	public static <T>T getService(Class<T> service){
 		if(!serviceCache.containsKey(service.getName())) {
 			Object serviceImpl =  injector.getInstance(service);

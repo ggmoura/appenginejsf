@@ -17,7 +17,7 @@ public class DatanucleusCRUDUtils {
 	 * @return
 	 * @throws RepositoryException
 	 */
-	public static List executeQuery(String jql) throws RepositoryException {
+	public static List<Object> executeQuery(String jql) throws RepositoryException {
 		return executeQuery(jql, null);
 	}
 
@@ -27,19 +27,20 @@ public class DatanucleusCRUDUtils {
 	 * @param params
 	 * @return
 	 */
-	public static List executeQuery(String jql, Map params) throws RepositoryException {
+	@SuppressWarnings("unchecked")
+	public static List<Object> executeQuery(String jql, Map<?, ?> params) throws RepositoryException {
 		EntityManager em = DatanucleusTransactionUtils.getEntityManager();
 		try {
 			Query query = em.createQuery(jql);
 			if(params != null && params.size() > 0) {
-				Iterator it = params.keySet().iterator();
+				Iterator<?> it = params.keySet().iterator();
 				while(it.hasNext()) {
 					String key = (String) it.next();
 					Object value = params.get(key);
 					query.setParameter(key, value);
 				}
 			}
-			List retorno  = query.getResultList();
+			List<Object> retorno  = query.getResultList();
 			return retorno;
 		}catch (Exception he) {
 			he.printStackTrace();
@@ -64,12 +65,12 @@ public class DatanucleusCRUDUtils {
 	 * @param params
 	 * @return
 	 */
-	public static Object executeQueryOneResult(String jql, Map params) throws RepositoryException {
+	public static Object executeQueryOneResult(String jql, Map<?, ?> params) throws RepositoryException {
 		EntityManager em = DatanucleusTransactionUtils.getEntityManager();
 		try {
 			Query query = em.createQuery(jql);
 			if(params != null && params.size() > 0) {
-				Iterator it = params.keySet().iterator();
+				Iterator<?> it = params.keySet().iterator();
 				while(it.hasNext()) {
 					String key = (String) it.next();
 					Object value = params.get(key);
@@ -108,7 +109,7 @@ public class DatanucleusCRUDUtils {
 	 * @return
 	 * @throws RepositoryException
 	 */
-	public static Object getById(Class klass, Serializable id) throws RepositoryException {
+	public static Object getById(Class<?> klass, Serializable id) throws RepositoryException {
 		EntityManager em = DatanucleusTransactionUtils.getEntityManager();
 		try {
 			Object obj = em.find(klass, id);
@@ -141,12 +142,13 @@ public class DatanucleusCRUDUtils {
 	 * @return
 	 * @throws RepositoryException
 	 */
-	public static List getAll(String entityName) throws RepositoryException {
+	@SuppressWarnings("unchecked")
+	public static List<Object> getAll(String entityName) throws RepositoryException {
 		EntityManager em = DatanucleusTransactionUtils.getEntityManager();
 		try {
 			String hql = "select x from " + entityName + " x";
 			Query query = em.createQuery(hql);
-			List retorno = query.getResultList();
+			List<Object> retorno = query.getResultList();
 			return retorno;
 		}catch(Exception e) {
 			throw new RepositoryException(e);

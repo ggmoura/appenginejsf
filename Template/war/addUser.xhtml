@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!-- 
+Autor: Gleidson Guimarães Moura 
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+
+
+<ui:composition template="/WEB-INF/templates/template.xhtml">
+
+	<ui:define name="conteudo">
+		<h:outputText value="Este texto está dentro do conteúdo do template" />
+	</ui:define>
+	<ui:param name="titulo" value="Aprendendo a usar um template" />
+
+	<h:form>
+		<table>
+			<tr>
+				<td>
+					<h:outputText value="Nome" />
+				</td>
+				<td>
+					<h:inputText value="#{usuarioBean.usuario.name}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputText value="Email" />
+				</td>
+				<td>
+					<h:inputText value="#{usuarioBean.usuario.contactEmail}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:outputText value="URL" />
+				</td>
+				<td>
+					<h:inputText value="#{usuarioBean.usuario.url}" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h:commandButton value="Gravar" action="#{usuarioBean.add}" />
+				</td>
+			</tr>
+		</table>
+	</h:form>
+
+</ui:composition>
+
+</html>
