@@ -18,6 +18,7 @@ Autor: Gleidson Guimarães Moura (http://gilliard.eti.br)
 
 	<ui:define name="conteudo">
 		<h:outputText value="Este texto está dentro do conteúdo do template" />
+		<p:calendar value="#{helloBean.data}" mode="inline" selection="multiple" close="false"/>
 	</ui:define>
 	<ui:param name="titulo" value="Aprendendo a usar um template" />
 
@@ -29,8 +30,6 @@ Autor: Gleidson Guimarães Moura (http://gilliard.eti.br)
 		<h:inputText value="#{helloBean.texto}" />
 		<h:commandButton value="Testar" action="#{helloBean.testar}" /><br /><br /><br />
 		<h:commandButton value="SCRIPT" onclick="alertar();" /><br /><br /><br />
-		
-		<p:calendar value="#{helloBean.data}" mode="inline" selection="multiple" close="false"/>
 		
 	</h:form>
 

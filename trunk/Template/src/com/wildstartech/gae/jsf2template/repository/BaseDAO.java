@@ -30,7 +30,8 @@ public class BaseDAO<Entity, Id extends Serializable> {
 	/**
 	 * Returns the Entity by its primary key
 	 */
-	 public Entity getByPrimaryKey(Id id) throws RepositoryException{
+	 @SuppressWarnings("unchecked")
+	public Entity getByPrimaryKey(Id id) throws RepositoryException{
 		return (Entity)DatanucleusCRUDUtils.getById(getEntity(), id);
 	 }
 

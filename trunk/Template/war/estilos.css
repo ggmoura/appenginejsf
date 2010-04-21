@@ -1,0 +1,14 @@
+/*
+	Autor: Gleidson Guimarães Moura
+*/
+.destaque {
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #AAA;
+    background-color: #CCCCFF;
+    color: blue;
+}
+.teste {
+	width: 200px;
+	height: 200px;
+}
